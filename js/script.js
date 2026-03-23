@@ -13,7 +13,14 @@ const kilometers = parseFloat(prompt("Quanti chilometri vuoi percorrere?"));
 const age = parseInt(prompt("Quanti anni hai?"));
 
 const pricePerKm = 0.21;
-const basePrice = kilometers * pricePerKm;
-let finalPrice = basePrice;
+const basePrice = kilometers * pricePerKm; //calcolo il prezzo in base ai kilometri
+let finalPrice = basePrice; //inizializzo il prezzo finale. Per la tariffa standard coincide con quello di base
 
+//verifica requisiti sconti
+if (age < 18){ //minorenne
+    finalPrice = basePrice * 0.8; 
+} else if(age > 65) { //senior
+    finalPrice = basePrice * 0.6;
+}
+console.log("Il prezzo finale è €" + finalPrice.toFixed(2));// stampa del prezzo finale
 
